@@ -1,12 +1,12 @@
 # tipFormer2025
 Transformer-Based Pollutant-Protein Interaction Analysis Prioritizes Airborne Components with Potential Adverse Health Effects
 
-This project implements a TipFormer model for predicting pollutant - protein interactions. It includes functions such as feature extraction using pre - trained language models, model definition, training, and prediction for new samples. The following is a detailed usage guide and an introduction to the project structure.
+This project implements a TipFormer model for predicting pollutant-protein interactions. It includes functions such as feature extraction using pre-trained language models, model definition, training, and prediction for new samples. The following is a detailed usage guide and an introduction to the project structure.
 
 ## Project Structure
 ```
 .
-├── feature_extractor.py  # Feature extraction using pre - trained language models
+├── feature_extractor.py  # Feature extraction using pre-trained language models
 ├── model.py              # Model definition
 ├── train.py              # Model training
 ├── predict.py            # Prediction for new samples
@@ -25,7 +25,7 @@ Make sure you have installed the following Python libraries:
 
 You can install them using the following command:
 ```bash
-pip install torch transformers pandas numpy matplotlib scikit - learn
+pip install torch transformers pandas numpy matplotlib scikit-learn
 ```
 
 ## Data Preparation
@@ -38,8 +38,8 @@ CCOc1ccccc1,MAEGEITTFTALTEKFQNKALGPGADLQ,0
 
 ## Code Usage Instructions
 
-### 1. Feature Extraction using Pre - trained Language Models (`feature_extractor.py`)
-This file defines a `FeatureExtractor` class for extracting features from SMILES strings and protein sequences. It uses the pre - trained ChemBERTa and ProtBert models.
+### 1. Feature Extraction using Pre-trained Language Models (`feature_extractor.py`)
+This file defines a `FeatureExtractor` class for extracting features from SMILES strings and protein sequences. It uses the pre-trained ChemBERTa and ProtBert models.
 ```python
 from feature_extractor import FeatureExtractor
 
@@ -49,7 +49,7 @@ protein_emb = extractor.extract_protein_features("MAEGEITTFTALTEKFQNKALGPGADLQ")
 ```
 
 ### 2. Model Definition (`model.py`)
-Defines the structure of the `TipFormer` model, including feature encoders for chemical molecules and proteins, a cross - attention mechanism, and a prediction head.
+Defines the structure of the `TipFormer` model, including feature encoders for chemical molecules and proteins, a cross-attention mechanism, and a prediction head.
 ```python
 from model import TipFormer
 
@@ -69,7 +69,7 @@ python predict.py
 ```
 
 ## Notes
-- Since the pre - trained models are relatively large, the model files will be automatically downloaded during the first run. Please ensure a stable network connection.
+- Since the pre-trained models are relatively large, the model files will be automatically downloaded during the first run. Please ensure a stable network connection.
 - The length of the input sequence will affect memory usage. It is recommended to adjust the `max_length` parameter according to your hardware configuration.
 - The training time may be long. It is recommended to use GPU acceleration. You can add the following code to use the GPU:
 ```python
