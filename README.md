@@ -30,6 +30,7 @@ pip install torch transformers pandas numpy matplotlib scikit-learn
 ```
 
 ## Data Preparation
+The dataset used in this project can be obtained from the [T3DB database](http://www.t3db.ca).<sup>[1]</sup>.
 Create a file named `air_pollution_data.csv` which should contain three columns: `smiles`, `protein_sequence`, and `label`. An example data format is as follows:
 ```csv
 smiles,protein_sequence,label
@@ -84,3 +85,6 @@ You can adjust the model parameters, data pre-processing flow, and evaluation me
 
 ## Contribution
 If you find any problems or have suggestions for improvement, please feel free to contact us.
+
+References
+[1] Wishart, D., Arndt, D., Pon, A., Sajed, T., Guo, A. C., Djoumbou, Y., Knox, C., Wilson, M., Liang, Y., Grant, J., Liu, Y., Goldansaz, S. A., & Rappaport, S. M. (2015). T3DB: the toxic exposome database. Nucleic acids research, 43(Database issue), D928–D934. https://doi.org/10.1093/nar/gku1004
