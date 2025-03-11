@@ -1,7 +1,8 @@
+![Graphical Abstract](abstract.png)
 # tipFormer2025
 Transformer-Based Pollutant-Protein Interaction Analysis Prioritizes Airborne Components with Potential Adverse Health Effects
-
-This project implements a TipFormer model for predicting pollutant-protein interactions. It includes functions such as feature extraction using pre-trained language models, model definition, training, and prediction for new samples. The following is a detailed usage guide and an introduction to the project structure.
+![overview](tipformerFigure1.png)
+Tlowworkhis project implements a TipFormer model for predicting pollutant-protein interactions. It includes functions such as feature extraction using pre-trained language models, model definition, training, and prediction for new samples. The following is a detailed usage guide and an introduction to the project structure.
 
 ## Project Structure
 ```
