@@ -69,7 +69,7 @@ def cal_prot_feat(data: pd.DataFrame) -> dict:
 
     return prot_feat
 
-def extract_dti() -> None:
+def extract_pti() -> None:
     
     save_path = "./feature"
     os.makedirs(save_path, exist_ok=True)
@@ -96,4 +96,4 @@ def extract_dti() -> None:
 
 if __name__ == "__main__":
     bermol_model_path = "./BerMolModel_base.pkl"
-    extract_dti()
+    extract_pti()
