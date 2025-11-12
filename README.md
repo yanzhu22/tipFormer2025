@@ -86,5 +86,13 @@ You can adjust the model parameters, data pre-processing flow, and evaluation me
 ## Contribution
 If you find any problems or have suggestions for improvement, please feel free to contact us.
 
+## Acknowledgements
+
+This project uses feature extraction logic inspired by / adapted from the `extract_feature.py` script in the [DTIAM](https://github.com/CSUBioGroup/DTIAM) repository (CSUBioGroup, 2023). We gratefully acknowledge their open-source contribution.
+
+If you use this code in your research, please also consider citing the original DTIAM work:
+
+> CSUBioGroup. (2023). *DTIAM: A unified framework for predicting drug-target interactions, binding affinities and activation/inhibition mechanisms*. GitHub repository. https://github.com/CSUBioGroup/DTIAM
+
 ## References
 [1] Wishart, D., Arndt, D., Pon, A., Sajed, T., Guo, A. C., Djoumbou, Y., Knox, C., Wilson, M., Liang, Y., Grant, J., Liu, Y., Goldansaz, S. A., & Rappaport, S. M. (2015). T3DB: the toxic exposome database. Nucleic acids research, 43(Database issue), D928–D934. https://doi.org/10.1093/nar/gku1004
