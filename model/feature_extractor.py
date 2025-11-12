@@ -1,3 +1,11 @@
+# --------------------------------------------------------
+# This module adapts feature extraction strategies from:
+#   https://github.com/CSUBioGroup/DTIAM/blob/main/code/data_process/extract_feature.py
+#
+# Original work by CSUBioGroup (DTIAM project).
+# Modifications made for tipFormer.
+# --------------------------------------------------------
+
 import os
 import sys
 sys.path.append('./dataset/BerMol/')
