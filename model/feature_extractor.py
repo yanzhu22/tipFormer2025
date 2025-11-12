@@ -62,7 +62,7 @@ def cal_prot_feat(data: pd.DataFrame) -> dict:
         return sequence_representations.cpu().detach().numpy().reshape(-1)
 
     prot_feat = {}
-    prot_data = data[["TargetUniProtID", "Sequence"]].drop_duplicates(subset=["TargetUniProtID"])
+    prot_data = data[["UniProtKB", "Sequence"]].drop_duplicates(subset=["UniProtKB"])
     for _, row in tqdm(prot_data.iterrows()):
         pid, seq = row[0], row[1]
         prot_feat[pid] = seq_to_vecs(pid, seq)
@@ -77,7 +77,7 @@ def extract_dti() -> None:
     #drug_smi = pd.read_csv("./dataset/pollutants.csv", sep=",")
     drug_smi = pd.read_csv("./dataset/pollutants.csv", sep=",", usecols=['ChemicalName', 'SMILES'])
 
-    tar_seq = pd.read_csv("./dataset/proteins.csv", sep=",", usecols=['TargetUniProtID', 'Sequence'])
+    tar_seq = pd.read_csv("./dataset/proteins.csv", sep=",", usecols=['UniProtKB', 'Sequence'])
     #tar_seq = pd.read_csv("./uniprotkb_Human_AND_model_organism_9606_2025_07_20.tsv", sep="\t", usecols=['TargetUniProtID', 'Sequence'])
 
     #drug_smi.columns = ["ChemicalName", "SMILES"]
@@ -85,12 +85,12 @@ def extract_dti() -> None:
 
     print(f"Extracting compound features ...")
     comp_feat = cal_comp_feat(drug_smi, bermol_model_path)
-    with open(save_path + "compound_features_DTIAM.pkl", "wb") as f:
+    with open(save_path + "compound_features.pkl", "wb") as f:
         pickle.dump(comp_feat, f)
 
     print(f"Extracting protein features ...")
     prot_feat = cal_prot_feat(tar_seq)
-    with open(save_path + "protein_features_DTIAM.pkl", "wb") as f:
+    with open(save_path + "protein_features.pkl", "wb") as f:
         pickle.dump(prot_feat, f)
 
 
