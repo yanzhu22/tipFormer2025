@@ -8,7 +8,7 @@
 
 import os
 import sys
-sys.path.append('./dataset/BerMol/')
+sys.path.append('./model/BerMol/')
 import torch
 import pickle
 import dill as pickle
