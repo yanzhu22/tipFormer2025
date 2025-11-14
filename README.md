@@ -1,15 +1,14 @@
 ![abstract](abstract.png)
 # tipFormer
-Transformer-Based Pollutant-Protein Interaction Analysis Prioritizes Airborne Components with Potential Adverse Health Effects
+A Transformer-Based Deep Learning Approach for Predicting Air Organic Pollutant-Human Protein Interactions
 ![overview](tipformerFigure1.jpg)
-This project implements a TipFormer model for predicting pollutant-protein interactions. It includes functions such as feature extraction using pre-trained language models, model definition, training, and prediction for new samples. The following is a detailed usage guide and an introduction to the project structure.
+This project implements a TipFormer method to predict pollutant-protein interactions. It includes functions such as feature extraction using pre-trained language models, model definition, training, and prediction for new samples. The following is a detailed usage guide and an introduction to the project structure.
 
 ## Project Structure
 ```
 .
 ├── feature_extractor.py  # Feature extraction using pre-trained language models
 ├── model.py              # Model definition
-├── train.py              # Model training
 ├── predict.py            # Prediction for new samples
 ├── best_model.pth        # Trained model weights (generated after training)
 └── README.md             # This instruction file
@@ -30,38 +29,23 @@ pip install torch transformers pandas numpy matplotlib scikit-learn
 ```
 
 ## Data Preparation
-The dataset used in this project can be obtained from the [T3DB database](http://www.t3db.ca) <sup>[1]</sup>.
-Create a file named `air_pollution_data.csv` which should contain three columns: `smiles`, `protein_sequence`, and `label`. An example data format is as follows:
-```csv
-smiles,protein_sequence,label
-O=C(O)c1ccccc1,MAEGEITTFTALTEKFQNKALGPGADLQ,1
-CCOc1ccccc1,MAEGEITTFTALTEKFQNKALGPGADLQ,0
-```
+The dataset used in this project can be obtained from the [T3DB database](http://www.t3db.ca) <sup>[1]</sup> and the [APDB database] (http://apdb.di.univr.it/apdb/home) <sup>[2]</sup>.
 
 ## Code Usage Instructions
 
 ### 1. Feature Extraction using Pre-trained Language Models (`feature_extractor.py`)
-This file defines a `FeatureExtractor` class for extracting features from SMILES strings and protein sequences. It uses the pre-trained ChemBERTa and ProtBert models.
-```python
-from feature_extractor import FeatureExtractor
 
-extractor = FeatureExtractor()
-chem_emb = extractor.extract_chem_features("O=C(O)c1ccccc1")
-protein_emb = extractor.extract_protein_features("MAEGEITTFTALTEKFQNKALGPGADLQ")
-```
 
 ### 2. Model Definition (`model.py`)
-Defines the structure of the `TipFormer` model, including feature encoders for chemical molecules and proteins, a cross-attention mechanism, and a prediction head.
+Defines the structure of the `tipFormer` model, including feature encoders for chemical molecules and proteins, a cross-attention mechanism, and a prediction head.
 ```python
 from model import TipFormer
 
-model = TipFormer()
+model = tipFormer()
 ```
 
-### 3. Model Training (`train.py`)
-Run this file to train the model. During the training process, validation will be performed, and the model weights with the minimum validation loss will be saved to the `best_model.pth` file.
 ```bash
-python train.py
+python model.py
 ```
 
 ### 4. Prediction for New Samples (`predict.py`)
@@ -95,4 +79,5 @@ If you use this code in your research, please also consider citing the original 
 > CSUBioGroup. (2023). *DTIAM: A unified framework for predicting drug-target interactions, binding affinities and activation/inhibition mechanisms*. GitHub repository. https://github.com/CSUBioGroup/DTIAM
 
 ## References
-[1] Wishart, D., Arndt, D., Pon, A., Sajed, T., Guo, A. C., Djoumbou, Y., Knox, C., Wilson, M., Liang, Y., Grant, J., Liu, Y., Goldansaz, S. A., & Rappaport, S. M. (2015). T3DB: the toxic exposome database. Nucleic acids research, 43(Database issue), D928–D934. https://doi.org/10.1093/nar/gku1004
+[1] Wishart, D.; Arndt, D.; Pon, A.; Sajed, T.; Guo, A. C.; Djoumbou, Y.; Knox, C.; Wilson, M.; Liang, Y. J.; Grant, J.; Liu, Y. F.; Goldansaz, S. A.; Rappaport, S. M. T3DB: the toxic exposome database. Nucleic Acids Res 2015, 43 (D1), D928-D934. DOI: 10.1093/nar/gku1004.
+[2] Viesi, E.; Sardina, D. S.; Perricone, U.; Giugno, R. APDB: a database on air pollutant characterization and similarity prediction. Database (Oxford) 2023, 2023, baad046. DOI: 10.1093/database/baad046  From NLM.
